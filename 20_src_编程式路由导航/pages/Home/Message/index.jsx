@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link, Route } from 'react-router-dom'
 import Detail from './Detail'
 export default class Message extends Component {
-
   // 向路由组件传递参数
   //   1.params参数
   //     路由链接(携带参数):<Link to='/demo/test/tom/18'>详情</Link>
@@ -26,6 +25,35 @@ export default class Message extends Component {
       { id: '03', title: 'title003' },
     ]
   }
+  pushShow = (id, title) => {
+    // push跳转 + 携带params参数
+    // this.props.history.push(`/home/message/detail/${ id }/${ title }`)
+
+    // push跳转 + 携带search参数
+    // this.props.history.push(`/home/message/detail?id=${ id }&title=${ title }`)
+    
+    // push跳转 + 携带state参数
+    this.props.history.push('/home/message/detail', { id, title })
+  }
+  replaceShow = (id, title) => {
+    // replace跳转 + 携带params参数
+    // this.props.history.replace(`/home/message/detail/${ id }/${ title }`)
+
+    // replace跳转 + 携带search参数
+    // this.props.history.replace(`/home/message/detail?id=${ id }&title=${ title }`)
+
+    // replace跳转 + 携带state参数
+    this.props.history.replace('/home/message/detail', { id, title })
+  }
+  back = () => {
+    this.props.history.goBack()
+  }
+  forward = () => {
+    this.props.history.goForward()
+  }
+  go = () => {
+    this.props.history.go(-1)
+  }
   render() {
     const { msgArr } = this.state
     return (
@@ -42,7 +70,9 @@ export default class Message extends Component {
                   {/* <Link to={`/home/message/detail/?id=${ item.id }&title=${ item.title }`}>{ item.title }</Link> */}
 
                   {/* 向路由组件传递state参数 */}
-                  <Link to={{ pathname: '/home/message/detail/', state: { id: item.id, title: item.title } }}>{ item.title }</Link>
+                  <Link to={{ pathname: '/home/message/detail', state: { id: item.id, title: item.title } }}>{ item.title }</Link>
+                  <button onClick={ () => this.pushShow(item.id, item.title) }>push跳转</button>
+                  <button onClick={ () => this.replaceShow(item.id, item.title) }>replace跳转</button>
                 </li>
               )
             })
@@ -56,6 +86,10 @@ export default class Message extends Component {
 
         {/* state参数无需声明接收 正常注册路由即可 */}
         <Route path="/home/message/detail" component={ Detail } />
+        <hr />
+        <button onClick={ this.back }>back</button>
+        <button onClick={ this.forward }>forward</button>
+        <button onClick={ this.go }>go</button>
       </div>
     )
   }
