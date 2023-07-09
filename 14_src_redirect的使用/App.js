@@ -9,7 +9,9 @@ export default class App extends Component {
   //   1.一般写在所有路由注册的最下方， 当所有路由都无法匹配时跳转到Redirect指定的路由
   //   2.具体编码:
   //   <Switch>
-  //   <Route path="/about"component=fAbout1/><Route path="/home" component=(Home]/><Redirect to="/about"/>
+  //     <Route path="/about"component={About}/>
+  //     <Route path="/home" component={Home}/>
+  //     <Redirect to="/about"/>
   //   </Switch>
   render() {
     return (

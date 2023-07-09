@@ -6,7 +6,7 @@ import Header from './component/Header'
 import MyNavLink from './component/MyNavLink'
 export default class App extends Component {
   // 嵌套路由
-  //   1.注册了路由时要写上父路由的path值
+  //   1.注册子路由时要写上父路由的path值
   //   2.路由的匹配是按照注册路由的顺序进行的
   render() {
     return (

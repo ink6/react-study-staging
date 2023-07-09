@@ -5,7 +5,7 @@ export default class Message extends Component {
 
   // 向路由组件传递params参数
   //     路由链接(携带参数):<Link to='/demo/test/tom/18'>详情</Link>
-  //     注册路山(声明接收):<Route path="/demo/test/:name/:age" component={Test}/>
+  //     注册路由(声明接收):<Route path="/demo/test/:name/:age" component={Test}/>
   //     接收参数: this.props.match.params
 
   state = {

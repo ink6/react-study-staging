@@ -6,7 +6,7 @@ module.exports = function(app) {
       target: "http://localhost:5000", // 请求转发给谁
       // changeOrigin: true, // 控制服务器收到的请求头中Host字段的值
       /*
-        hangeorigin设置为true时，服务器收到的请求头中的host为: localhost:5000
+        Changeorigin设置为true时，服务器收到的请求头中的host为: localhost:5000
         changeorigin设置为false时，服务器收到的请求头中的host为: oca]host:3000
         changeorigin默认值约false，但我们一般将changeorigin值设为true
       */

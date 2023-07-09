@@ -58,7 +58,7 @@ export default class App extends Component {
               <div className="panel-body">
                 {/* 注册路由 */}
                 {/* 通常情况下，path 和 component是一一对应关系
-                Switch可以提供路由匹配的效率（单一匹配） */}
+                Switch可以提高路由匹配的效率（单一匹配） 当匹配了之后 就不再往下匹配 */}
                 <Switch>
                   <Route path="/about" component={ About } />
                   <Route path="/home" component={ Home } />
